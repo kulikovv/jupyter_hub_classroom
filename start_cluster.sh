@@ -1,5 +1,9 @@
+wget https://storage.googleapis.com/kubernetes-helm/helm-v2.6.2-linux-amd64.tar.gz
+tar zxfv helm-v2.6.2-linux-amd64.tar.gz
+cp linux-amd64/helm .
+
 gcloud container clusters create cluster-1 \
-    --num-nodes=3 \
+    --num-nodes 2 --enable-autoscaling --min-nodes 1 --max-nodes 30 \
     --machine-type=n1-standard-1 \
     --zone=us-central1-b
 
